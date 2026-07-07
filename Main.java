@@ -10,7 +10,7 @@ public class Main {
         String method = null;
         String hash = null;
 
-        // --- 1. Parsing des arguments ---
+        //   recuperation des arguments
         for (int i = 0; i < args.length - 1; i++) {
             if ("-m".equals(args[i])) {
                 method = args[i + 1];
@@ -24,7 +24,7 @@ public class Main {
             System.exit(1);
         }
 
-        // --- 2. Création de la stratégie via la fabrique ---
+        //  Création de la stratégie via la fabrique  avec exception s'il y'a erreur
         HashCracker cracker;
         try {
             cracker = HashCrackerFactory.create(method);
@@ -35,7 +35,7 @@ public class Main {
             return; // inatteignable, mais rassure le compilateur
         }
 
-        // --- 3. Exécution de la stratégie (polymorphisme) ---
+        //  Exécution de la stratégie 
         long startTime = System.nanoTime();
         String result = cracker.crack(hash);
         long elapsedMs = (System.nanoTime() - startTime) / 1_000_000;
