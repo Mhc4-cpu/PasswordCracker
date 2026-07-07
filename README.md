@@ -104,7 +104,6 @@ En rejouant l'algorithme sur les mêmes hashes, on observe l'écart attendu entr
 - **DICO** : de l'ordre de quelques tentatives seulement (le dictionnaire ne contient que 20 mots), donc quasi instantané.
 - **BRUTE** : jusqu'à 475 254 combinaisons testées pour parcourir tout l'espace `a-z` de longueur 1 à 4 lorsque le mot n'y figure pas, avec un temps d'exécution qui croît fortement avec la longueur du mot recherché.
 
-*(À compléter : capture d'écran ou copier-coller de la console lors de l'exécution réelle du `.jar`.)*
 
 ### Vidéo de démonstration
 
