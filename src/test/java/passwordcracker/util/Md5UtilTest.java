@@ -32,4 +32,5 @@ class Md5UtilTest {
         String targetHash = Md5Util.hash("azerty").toUpperCase();
         assertTrue(Md5Util.matches("azerty", targetHash));
     }
+ 
 }
