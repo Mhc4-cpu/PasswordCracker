@@ -52,41 +52,7 @@ src/test/java/passwordcracker/util/
 ## 4. Diagramme UML
 
 ```
-     ┌───────────────────────┐
-                    │     <<interface>>      │
-                    │      HashCracker       │
-                    ├───────────────────────┤
-                    │ + crack(hash:String)   │
-                    │        :String         │
-                    └───────────▲───────────┘
-                                │ implements
-                ┌───────────────┴───────────────┐
-                │                                │
-   ┌────────────────────────┐      ┌──────────────────────────┐
-   │ DictionaryHashCracker   │      │  BruteForceHashCracker    │
-   ├────────────────────────┤      ├──────────────────────────┤
-   │ - dictionaryResource    │      │ - ALPHABET: char[]        │
-   │ - attempts: int         │      │ - MAX_LENGTH: int         │
-   ├────────────────────────┤      │ - attempts: int           │
-   │ + crack(hash):String    │      ├──────────────────────────┤
-   │ + getAttempts():int     │      │ + crack(hash):String      │
-   │ - loadWords():List      │      │ + getAttempts():int       │
-   └────────────────────────┘      │ - tryAllCombinations()    │
-                                    └──────────────────────────┘
-
-   ┌───────────────────────────┐            uses            ┌─────────────┐
-   │   HashCrackerFactory       │ ─────────creates──────────▶│ HashCracker │
-   ├───────────────────────────┤                              (via new)
-   │ + create(method):HashCracker│
-   └──────────────┬──────────────┘
-                  │ used by
-                  ▼
-            ┌───────────┐        uses         ┌─────────┐
-            │   Main    │ ───────────────────▶│ Md5Util │
-            └───────────┘                      ├─────────┤
-                                                │+hash()  │
-                                                │+matches()│
-                                                └─────────┘
+   
 ```
 
 
