@@ -3,18 +3,7 @@ package passwordcracker;
 import passwordcracker.cracker.HashCracker;
 import passwordcracker.factory.HashCrackerFactory;
 
-/**
- * Point d'entrée de l'application en ligne de commande.
- *
- * Usage :
- *   passwordCracker -m BRUTE -h <hashMD5>
- *   passwordCracker -m DICO  -h <hashMD5>
- *
- * Cette classe orchestre le programme mais ne connaît jamais les
- * classes concrètes de stratégie (DictionaryHashCracker,
- * BruteForceHashCracker) : elle ne manipule que le type abstrait
- * HashCracker, obtenu via HashCrackerFactory.
- */
+
 public class Main {
 
     public static void main(String[] args) {
