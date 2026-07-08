@@ -124,7 +124,7 @@ Ce mini-projet a permis de mettre en pratique le patron **Simple Factory** dans 
 
 Projet réalisé en groupe par :
 
-- Habib CISSE
+- Mouhamadoul Habib CISSE
 - Abdourahmane FAYE
 - Mouhamed BOUSSO
 - Moustapha NGUERANE
