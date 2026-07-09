@@ -106,6 +106,7 @@ En rejouant l'algorithme sur les mêmes hashes, on observe l'écart attendu entr
 
 
 ### Vidéo de démonstration
+https://drive.google.com/drive/u/1/folders/1Q0_OqnR03tjOx4KWURM5SrimnLTIOB6I
 
 
 ## 7. Difficultés rencontrées
