@@ -52,7 +52,13 @@ src/test/java/passwordcracker/util/
 ## 4. Diagramme UML
 
 ```
-   
+  <img width="1111" height="981" alt="uml-diagram" src="https://github.com/user-attachments/assets/a12530ed-1373-4b15-b7f7-7b02e64f90fb" />
+
+ Ce diagramme illustre le patron **Simple Factory** :
+- `HashCracker` est l'interface commune (contrat) implémentée par les deux stratégies concrètes.
+- `HashCrackerFactory` est le seul point du programme autorisé à instancier `DictionaryHashCracker` ou `BruteForceHashCracker`.
+- `Main` ne dépend que de `HashCracker` et de la fabrique, jamais des classes concrètes directement.
+- `Md5Util` est une classe utilitaire partagée par les deux stratégies pour éviter la duplication du code de hachage.
 ```
 
 
