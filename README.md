@@ -60,7 +60,8 @@ src/test/java/passwordcracker/util/
 - `Main` ne dépend que de `HashCracker` et de la fabrique, jamais des classes concrètes directement.
 - `Md5Util` est une classe utilitaire partagée par les deux stratégies pour éviter la duplication du code de hachage.
 
-```## 5. Usage du patron Simple Factory
+
+## 5. Usage du patron Simple Factory
 
 Le patron **Simple Factory** est mis en œuvre dans `HashCrackerFactory`, qui expose une unique méthode statique `create(String method)` :
 
