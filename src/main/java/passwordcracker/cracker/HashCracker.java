@@ -21,4 +21,5 @@ public interface HashCracker {
      *         correspondance n'a été trouvée
      */
     String crack(String hash);
+    int getAttempts();
 }

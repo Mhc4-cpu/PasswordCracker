@@ -43,11 +43,14 @@ public class Main {
         // --- 4. Affichage du résultat ---
         if (result != null) {
             System.out.println("Password found: " + result);
+            
         } else {
             System.out.println("Password not found");
         }
         System.out.println("Méthode utilisée : " + method.toUpperCase());
         System.out.println("Temps d'exécution : " + elapsedMs + " ms");
+        System.out.println("Nombre de tentatives : " + cracker.getAttempts());
+
     }
 
     private static void printUsage() {
