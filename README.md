@@ -96,6 +96,8 @@ java -jar target/passwordCracker.jar -m DICO -h 5f4dcc3b5aa765d61d8327deb882cf99
 ### Exemples d'exécution
 
 **Capture 1 — Compilation du projet avec Maven**
+<img width="956" height="916" alt="Capture d’écran 2026-07-12 011001" src="https://github.com/user-attachments/assets/a5c18090-460b-4ff6-869d-7bec3274134b" />
+<img width="950" height="855" alt="Capture d’écran 2026-07-12 011023" src="https://github.com/user-attachments/assets/3b3b39c0-24c5-409e-ab89-0c59a7180577" />
 
 On lance `mvn clean package` depuis la racine du projet. Maven télécharge les dépendances nécessaires (commons-codec pour le calcul MD5, etc.), compile les sources, exécute les tests, puis génère l'archive exécutable `target/passwordCracker.jar`. Le message `BUILD SUCCESS` confirme que la compilation s'est déroulée sans erreur.
 
