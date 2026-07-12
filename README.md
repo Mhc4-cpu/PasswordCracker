@@ -95,20 +95,29 @@ java -jar target/passwordCracker.jar -m DICO -h 5f4dcc3b5aa765d61d8327deb882cf99
 
 ### Exemples d'exécution
 
-| Commande | Sortie |
-|---|---|
-| `-m DICO -h 098f6bcd4621d373cade4e832627b4f6` | `Password found: test` |
-| `-m DICO -h 5f4dcc3b5aa765d61d8327deb882cf99` | `Password found: password` |
-| `-m BRUTE -h e2fc714c4727ee9395f324cd2e7f331f` | `Password found: abcd` |
-| `-m BRUTE -h 5f4dcc3b5aa765d61d8327deb882cf99` | `Password not found` *(mot absent de l'espace de recherche a-z, 4 caractères max)* |
+**Capture 1 — Compilation du projet avec Maven**
 
-### Observations de performance
+![Compilation Maven — BUILD SUCCESS](screenshot-build.png)
 
-En rejouant l'algorithme sur les mêmes hashes, on observe l'écart attendu entre les deux stratégies :
+On lance `mvn clean package` depuis la racine du projet. Maven télécharge les dépendances nécessaires (commons-codec pour le calcul MD5, etc.), compile les sources, exécute les tests, puis génère l'archive exécutable `target/passwordCracker.jar`. Le message `BUILD SUCCESS` confirme que la compilation s'est déroulée sans erreur.
 
-- **DICO** : de l'ordre de quelques tentatives seulement (le dictionnaire ne contient que 20 mots), donc quasi instantané.
-- **BRUTE** : jusqu'à 475 254 combinaisons testées pour parcourir tout l'espace `a-z` de longueur 1 à 4 lorsque le mot n'y figure pas, avec un temps d'exécution qui croît fortement avec la longueur du mot recherché.
+**Capture 2 — Cassage par dictionnaire (mot trouvé)**
 
+![Commande DICO — mot trouvé](cmd1-dico.png)
+
+On lance le programme en mode DICO avec le hash du mot `password`. Le programme charge le dictionnaire, calcule le hash de chaque mot qu'il contient, et le compare au hash recherché. Dès qu'une correspondance est trouvée — ici `password` — il l'affiche. Le temps d'exécution est très court, 88 ms, car le dictionnaire ne contient qu'une vingtaine de mots à tester.
+
+**Capture 3 — Cassage par force brute (mot trouvé)**
+
+![Commande BRUTE — mot trouvé](cmd2-brute-found.png)
+
+Cette fois, on teste le mode BRUTE avec le hash du mot `abcd`. Le programme génère systématiquement toutes les combinaisons possibles de lettres, de 1 à 4 caractères, dans l'ordre alphabétique, jusqu'à trouver une correspondance. Il retrouve `abcd` en 364 ms — plus long que le dictionnaire, car il doit tester beaucoup plus de combinaisons avant d'y arriver.
+
+**Capture 4 — Force brute (mot non trouvé)**
+
+![Commande BRUTE — mot non trouvé](cmd3-brute-notfound.png)
+
+Enfin, on relance une attaque BRUTE, mais cette fois avec le hash de `password`, qui contient 8 caractères. L'espace de recherche étant limité à 4 caractères maximum, le programme est obligé de tester l'intégralité des 475 254 combinaisons possibles avant de conclure qu'aucune correspondance n'existe dans cet espace. Résultat : `Password not found`, en 1257 ms. Cela illustre bien la limite principale de la force brute : plus le mot de passe est long, plus le temps de recherche explose de façon exponentielle.
 
 ### Vidéo de démonstration
 https://drive.google.com/drive/u/1/folders/1Q0_OqnR03tjOx4KWURM5SrimnLTIOB6I
